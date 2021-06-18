@@ -1,0 +1,54 @@
+#Format data to LEfSe
+
+lefse-format_input.py lefse.txt lefse.in -c 2 -u 1 -s -1 -o 1000000  
+
+#-u SampleID -c Class -s Subclass (if there is not sublclass set to -1)
+# -o 1000000 scales the feature such that the sum (of the same taxonomic level) is 1M
+
+#Run LEfSe 
+
+run_lefse.py lefse.in lefse.res -l 4  
+
+#-l Change LDA treshold (LDA > 2 by default) 
+
+#Plot Results into bar chart 
+plot_res.py lefse.res lefse.bar.png --format png --dpi 300 --title "" --class_legend_font_size 9 --width 10
+
+#Plot cladogram 
+
+plot_cladogram.py lefse.res lefse.cladogram.png --format png --dpi 300 --expand_void_lev 5 \
+--class_legend_vis 0 --siblings_connector_width 0.5 --max_point_size 4 --alpha 0.05 \
+--title "" --label_font_size 7 --labeled_stop_lev 7 --parents_connector_width 0.5 --abrv_stop_lev 6
+
+#Some parameters
+#Set structural parameters of the cladogram:
+#root
+#expand_void_lev
+#max_lev
+
+#Set text and label options (font size, abbreviations, ...):
+#title
+#label_font_size
+#title_font_size
+#class_legend_font_size
+#labeled_start_lev
+#labeled_stop_lev
+#abrv_start_lev
+#abrv_stop_lev
+
+#Set some graphical options to personalize the output
+#radial_start_lev
+#max_point_size
+#min_point_size
+#point_edge_width
+#siblings_connector_width
+#parents_connector_width
+#alpha
+#clade_sep
+#for
+#right_space_prop
+#colored_labels
+#background_color
+
+#Output format:
+#dpi
