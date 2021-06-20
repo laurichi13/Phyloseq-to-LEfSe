@@ -1,2 +1,2 @@
 # Phyloseq to LEfSe
-Data from phyloseq objects to LEfSe
+R code to transform data from phyloseq objects to LEfSe.
